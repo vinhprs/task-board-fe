@@ -23,6 +23,11 @@ const DashboardPage = () => {
     );
   };
 
+  const normalizedSearchValue = searchValue.trim().toLowerCase();
+  const filterTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(normalizedSearchValue),
+  );
+
   return (
     <AppShell
       avatarUrl={mockUser.avatarUrl}
@@ -32,7 +37,7 @@ const DashboardPage = () => {
       userName={mockUser.name}
     >
       <TaskCompletionText tasks={tasks} />
-      <TaskList tasks={tasks} onToggle={handleToggle} />
+      <TaskList tasks={filterTasks} onToggle={handleToggle} />
     </AppShell>
   );
 };
