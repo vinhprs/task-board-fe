@@ -3,6 +3,7 @@ import { mockTasks } from "../../features/task/mock-task-data";
 import TaskList from "../../features/task/task-list";
 import { TASK_STATUS } from "../../enums";
 import TaskProgressSummary from "../../features/task/task-progress-summary";
+import AppShell from "../../components/layout/app-shell";
 
 const DashboardPage = () => {
   const [tasks, setTasks] = useState(mockTasks);
@@ -22,8 +23,9 @@ const DashboardPage = () => {
 
   return (
     <>
-      <TaskList tasks={tasks} onToggle={handleToggle} />
-      <TaskProgressSummary tasks={tasks} />
+      <AppShell sidebarFooter={<TaskProgressSummary tasks={tasks} />}>
+        <TaskList tasks={tasks} onToggle={handleToggle} />
+      </AppShell>
     </>
   );
 };
