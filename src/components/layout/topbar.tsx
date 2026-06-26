@@ -1,3 +1,6 @@
+import SearchIcon from "../../assets/icons/search.svg";
+import FilterIcon from "../../assets/icons/filter.svg";
+import NotificationIcon from "../../assets/icons/notification.svg";
 interface TopbarProps {
   userName: string;
   avatarUrl?: string;
@@ -18,20 +21,11 @@ const Topbar = ({
 
         <div className="flex w-full max-w-md items-center gap-3">
           <div className="relative flex-1">
-            <svg
-              aria-hidden="true"
-              className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="m21 21-4.35-4.35M10.75 18.5a7.75 7.75 0 1 1 0-15.5 7.75 7.75 0 0 1 0 15.5Z"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.8"
-              />
-            </svg>
+            <img
+              src={SearchIcon}
+              alt=""
+              className="absolute left-3 top-1/3 h-4 w-4 "
+            />
 
             <input
               className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-2 focus:ring-indigo-100"
@@ -46,19 +40,7 @@ const Topbar = ({
             className="flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M4 7h16M7.5 12h9M10.5 17h3"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeWidth="1.8"
-              />
-            </svg>
+            <img src={FilterIcon} alt="" className="left-3 top-1/3 h-4 w-4 " />
             Filter
           </button>
         </div>
@@ -70,20 +52,7 @@ const Topbar = ({
           className="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M18 9.75a6 6 0 1 0-12 0c0 7-2.25 7.75-2.25 7.75h16.5S18 16.75 18 9.75ZM14.25 20a2.5 2.5 0 0 1-4.5 0"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.8"
-            />
-          </svg>
+          <img src={NotificationIcon} alt="" className="h-4 w-4" />
         </button>
 
         <div className="h-8 w-px bg-slate-200" />

@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import logoIcon from "../../assets/logo.svg";
-import myTasksIcon from "../../assets/my-taks.svg";
-import completedIcon from "../../assets/completed.svg";
-import settingIcon from "../../assets/setting.svg";
+import logoIcon from "../../assets/logo/logo.svg";
+import myTasksIcon from "../../assets/icons/my-taks.svg";
+import completedIcon from "../../assets/icons/completed.svg";
+import settingIcon from "../../assets/icons/setting.svg";
 
 interface SidebarProps {
   footer?: ReactNode;
