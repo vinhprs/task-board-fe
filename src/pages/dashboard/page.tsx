@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { mockTasks } from "../../features/task/mock-task-data";
+import { mockTasks, mockUser } from "../../features/task/mock-task-data";
 import TaskList from "../../features/task/task-list";
 import { TASK_STATUS } from "../../enums";
 import TaskProgressSummary from "../../features/task/task-progress-summary";
 import AppShell from "../../components/layout/app-shell";
+import TaskCompletionText from "../../features/task/task-progress";
 
 const DashboardPage = () => {
   const [tasks, setTasks] = useState(mockTasks);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleToggle = (taskId: string, checked: boolean) => {
     setTasks((currentTasks) =>
@@ -22,11 +24,16 @@ const DashboardPage = () => {
   };
 
   return (
-    <>
-      <AppShell sidebarFooter={<TaskProgressSummary tasks={tasks} />}>
-        <TaskList tasks={tasks} onToggle={handleToggle} />
-      </AppShell>
-    </>
+    <AppShell
+      avatarUrl={mockUser.avatarUrl}
+      onSearchChange={setSearchValue}
+      searchValue={searchValue}
+      sidebarFooter={<TaskProgressSummary tasks={tasks} />}
+      userName={mockUser.name}
+    >
+      <TaskCompletionText tasks={tasks} />
+      <TaskList tasks={tasks} onToggle={handleToggle} />
+    </AppShell>
   );
 };
 
