@@ -23,6 +23,12 @@ const DashboardPage = () => {
     );
   };
 
+  const handleOnDelete = (taskId: string) => {
+    setTasks((currentTasks) =>
+      currentTasks.filter((item) => item.id !== taskId),
+    );
+  };
+
   const normalizedSearchValue = searchValue.trim().toLowerCase();
   const filterTasks = tasks.filter((task) =>
     task.title.toLowerCase().includes(normalizedSearchValue),
@@ -37,7 +43,11 @@ const DashboardPage = () => {
       userName={mockUser.name}
     >
       <TaskCompletionText tasks={tasks} />
-      <TaskList tasks={filterTasks} onToggle={handleToggle} />
+      <TaskList
+        tasks={filterTasks}
+        onToggle={handleToggle}
+        onDelete={handleOnDelete}
+      />
     </AppShell>
   );
 };
